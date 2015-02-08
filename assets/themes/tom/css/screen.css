@@ -195,3 +195,9 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+blockquote {
+    border-left: 4px solid #ddd;
+    color: #777;
+    padding: 0 15px;
+}
