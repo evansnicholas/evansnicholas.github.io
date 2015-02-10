@@ -11,8 +11,7 @@ highlighter: pygments
 title : Blog
 tagline: Nick's thoughts on software engineering
 author :
-  name : Nick Evans
-  email : evansnicholas@hotmail.com	
+  name : Nick Evans	
   github : evansnicholas
   twitter : npcevans
 
