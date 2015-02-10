@@ -39,7 +39,7 @@ While commenting on the meaning of a "monoid", in other words, while trying to a
 
 The takeaway message here is that the value of an abstraction lies in its usefulness, not in its intuitive significance.  A monoid is therefore defined by a type, a set of operations on that type and a set of laws obeyed by those operations.  These operations and these laws are interesting because they reoccur often in useful programs.  To me, this pragmatic approach to understanding functional abstraction is very appealing, and it helps free oneself from the feeling that a proper "understanding" of functional programming involves associating an intuitive meaning to the abstractions.  This being said, searching for intuitive meaning is irresistible (and quite fun), and the authors do also indulge this temptation from time to time.  In the case of the monoid, the intuition is that it supports the notion of "addition".  In other words, data structures for which a monoid can be defined are foldable, or reduceable.  The monoid laws also imply that this reduction can happen in parallel on different sections of the data structure.  Typical monoidal data structures are lists or trees.
 
-The next important functional abstraction in the functor:
+The next important functional abstraction is the functor:
 
 {% highlight scala %}
 trait Functor[F[_]] {
