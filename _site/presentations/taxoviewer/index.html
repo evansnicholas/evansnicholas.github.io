@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Tornit Taxonomy Viewer</title>
+
+		<meta name="description" content="A presentation about the Tornit Taxonomy Viewer">
+		<meta name="author" content="Nick Evans">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/assets/reveal-4632e3368498eaac763ea7c7662cff61.css">
+		<link rel="stylesheet" href="/assets/theme/black-426d3b0fda9b31371e0d6cb11b9ea73a.css">
+                <link rel="stylesheet" href="/assets/custom-de2f3cf4b9c8f38533c248bf00e947d6.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/assets/lib/zenburn-3a1fe64570dc7f65e042b69cbca15b5c.css">
+
+		<!--[if lt IE 9]>
+		<script src="/assets/lib/html5shiv-21ef9f17d9ec0545bce0c04f3ae11ab8.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+                                <section>
+                                    <svg id="tornit-name" class="fragment" data-fragment-index="1" width="510" height="150px">
+                                      <!--T-->
+                                      <path d="M0 10 H 100" />
+                                      <path d="M50 10 V 110"/>
+                                      <!--o-->
+                                      <path d="M100 60 H 150" />
+                                      <path d="M150 60 V 110" />
+                                      <path d="M150 110 H 100" />
+                                      <path d="M100 110 V 60" />
+                                      <!--r-->
+                                      <path d="M200 110 V 60" />
+                                      <path d="M200 60 H 225" />
+                                      <!--n-->
+                                      <path d="M250 110 V 60" />
+                                      <path d="M250 60 L 300 110" />
+                                      <path d="M300 110 V 60" />
+                                      <!--i-->
+                                      <path d="M350 60 V 110" />
+                                      <path d="M100 30 H 350" />
+                                      <path d="M350 30 V 45" />
+                                      <!--T-->
+                                      <path d="M350 10 H 450" />
+                                      <path d="M400 110 V 10" /> 
+                                    </svg> 
+                                    <h5 class="fragment" data-fragment-index="2">An XBRL Taxonomy Viewer</h5>
+                                </section>
+                                <section>
+					<h1>Reveal.js</h1>
+					<h3>The HTML Presentation Framework</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hello There</h2>
+					<p>
+						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="/assets/lib/head.min-d3dd81e68c936875d67d721b4e029a0f.js"></script>
+		<script src="/assets/reveal-2146546806878e0965a11a1e76a00941.js"></script>
+                <script src="/assets/vivus.min-3e85dfbf0f947e647edb94c002caff56.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: []
+			});
+                   
+                        var animateTornit = new Vivus('tornit-name', {type: 'delayed', duration: 200, start: 'manual' });
+     
+                        Reveal.addEventListener('fragmentshown', function( event ) {
+                          if (event.fragment.id === 'tornit-name') {
+                            animateTornit.play();
+                          }
+                        });
+		</script>
+
+	</body>
+</html>
