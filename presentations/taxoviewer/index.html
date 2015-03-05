@@ -17,8 +17,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		{% stylesheet "reveal.css" %}
-		{% stylesheet "theme/black.css" %}
-                {% stylesheet "custom.css" %}
+		{% stylesheet "theme/beige.css" %}
+                {% stylesheet "taxoviewer.css" %}
 
 		<!-- Code syntax highlighting -->
 		{% stylesheet "lib/zenburn.css" %}
@@ -35,8 +35,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				
-                                <section>
-                                    <svg id="tornit-name" class="fragment" data-fragment-index="1" width="510" height="150px">
+                                <section data-background="#8b0000" data-transition="zoom">
+                                    <svg id="tornit-name" class="fragment" data-fragment-index="1" width="450" height="150px">
                                       <!--T-->
                                       <path d="M0 10 H 100" />
                                       <path d="M50 10 V 110"/>
@@ -60,46 +60,52 @@
                                       <path d="M350 10 H 450" />
                                       <path d="M400 110 V 10" /> 
                                     </svg> 
-                                    <h5 class="fragment" data-fragment-index="2">An XBRL Taxonomy Viewer</h5>
+                                    <h5 class="fragment" data-fragment-index="2" id="front-page-header">An XBRL Taxonomy Viewer</h5>
                                 </section>
-                                <section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
+                                <section data-transition="convex">
+				  <h3>What is a taxonomy viewer?</h3>
 				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+                         	<section data-transition="convex">
+			          <h3>What is a taxonomy?</h3>
+                                  
+                                    <ul>
+                                      <li class="fragment" data-fragment-index="1">Lots of XML files, containing...</li>
+                                      <li class="fragment" data-fragment-index="2"><a href="http://nltaxonomie.nl/9.0/basis/venj/items/venj-bw2-data.xsd">Concept definitions (xsd's)</a></li>
+                                      <li class="fragment" data-fragment-index="3"><a href="http://nltaxonomie.nl/9.0/report/kvk/linkroles/kvk-balance-sheet-model-d-pre.xml">Meta-information about these concepts (linkbases)</a></li>
+                                    </ul>
+                                 
+				</section>
+                                <section>
+				  <h3>What is a taxonomy viewer?</h3>
+                                  <ul>
+                                    <li data-fragment-index="1" class="fragment fade-in">Helps you access information in the taxonomy</li>
+                                    <li data-fragment-index="2" class="fragment fade-in">Answers questions</li>
+                                    <li data-fragment-index="3" class="fragment fade-in">Hides the technicalities</li>
+                                  </ul>
+				</section>
+                                <section>
+                                  <section>
+				    <h3>What is a <span data-fragment-index="1" class="fragment highlight-red">good</span> taxonomy viewer?</h3>
+                                    <ul>
+                                      <li data-fragment-index="2" class="fragment fade-in">Assists you in your queries</li>
+                                      <li data-fragment-index="3" class="fragment fade-in">Is visual</li>
+                                      <li data-fragment-index="4" class="fragment fade-in">Helps you interpret the taxonomy</li>
+                                      <li data-fragment-index="5" class="fragment fade-in">Provides many different ways of looking at the taxonomy</li>
+                                      <li data-fragment-index="6" class="fragment fade-in">Is snappy</li>
+                                    </ul>
+                                  </section>
+                                  <section>
+                                    <h2>Demo Yeti</h2>
+                                  </section>
+                                  <section>
+                                    <h2>Demo Tornit</h2>
+                                  </section>
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
+		                  <h1>The Stack</h1>
+                                  <!--Describe the technological stack: Play/Angular-->
 				</section>
 
 			</div>
@@ -126,7 +132,7 @@
 				dependencies: []
 			});
                    
-                        var animateTornit = new Vivus('tornit-name', {type: 'delayed', duration: 200, start: 'manual' });
+                        var animateTornit = new Vivus('tornit-name', {type: 'delayed', duration: 175, start: 'manual' });
      
                         Reveal.addEventListener('fragmentshown', function( event ) {
                           if (event.fragment.id === 'tornit-name') {
