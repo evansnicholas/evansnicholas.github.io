@@ -107,6 +107,100 @@
 		                  <h1>The Stack</h1>
                                   <!--Describe the technological stack: Play/Angular-->
 				</section>
+                                <section>
+                                  <svg width="960" height="700">
+                                    <defs>
+                                      <marker id="head-down" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
+                                        <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
+                                      </marker>
+                                      <marker id="head-up" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
+                                        <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
+                                      </marker>
+                                    </defs>
+                                    <g transform="translate(200,125)">
+                                    <rect width="150" height="75" x="0" y="0" 
+                                          style="fill:white;stroke-width:1;stroke:black;"/>
+                                    <path d="M50 75 V200" 
+                                          style="stroke:black;stroke-width:1;"
+                                          marker-end="url(#head-down)"/>
+                                    <path d="M100 80 V200" 
+                                          style="stroke:black;stroke-width:1;"
+                                          marker-start="url(#head-up)"/>
+                                    </g>
+                                    <g transform="translate(600,125)">
+                                    <rect width="150" height="75" x="0" y="0" 
+                                          style="fill:white;stroke-width:1;stroke:black;"/>
+                                    <path d="M50 75 V200" 
+                                          style="stroke:black;stroke-width:1;"
+                                          marker-end="url(#head-down)"/>
+                                    <path d="M100 80 V200" 
+                                          style="stroke:black;stroke-width:1;"
+                                          marker-start="url(#head-up)"/>
+                                    </g>
+                                    <path d="M20 350 H920" style="stroke:black;"/>
+                                    <g transform="translate(150, 360)">
+                                      <rect width="640" height="90"
+                                      style="fill:white;stroke:black;"/>
+                                      <g transform="translate(260, 25)">
+                                        <text x="0" y="0" font-size="20">REST API</text>
+                                        <text x="0" y="25" font-size="20">/concept/resources</text>
+                                        <text x="0" y="50" font-size="20">/dtsGraph</text>
+                                      </g>
+                                    </g>
+                                    <g transform="translate(150, 455)">
+                                      <rect width="640" height="30"
+                                      style="fill:white;stroke:black;"/>
+                                      <g transform="translate(260, 22)">
+                                        <text x="0" y="0" font-size="20">TQA</text>
+                                      </g>
+                                    </g>
+                                    <g transform="translate(150, 490)">
+                                      <rect width="640" height="30"
+                                      style="fill:white;stroke:black;"/>
+                                      <g transform="translate(260, 22)">
+                                        <text x="0" y="0" font-size="20">Yaidom</text>
+                                      </g>
+                                    </g>
+                                    <g transform="translate(150, 525)">
+                                      <g transform="translate(0, 0)">
+                                        <rect width="153" height="60"
+                                      style="fill:white;stroke:black;"/>
+                                        <text x="55" y="40" font-size="20">XML</text>
+                                      </g>
+                                      <g transform="translate(163, 0)">
+                                        <rect width="152" height="60"
+                                      style="fill:white;stroke:black;"/>
+                                        <text x="55" y="40" font-size="20">XML</text>
+                                      </g>
+                                      <g transform="translate(325, 0)">
+                                        <rect width="152" height="60"
+                                      style="fill:white;stroke:black;"/>
+                                        <text x="55" y="40" font-size="20">XML</text>
+                                      </g>
+                                      <g transform="translate(487, 0)">
+                                        <rect width="153" height="60"
+                                      style="fill:white;stroke:black;"/>
+                                        <text x="55" y="40" font-size="20">XML</text>
+                                      </g>
+                                    </g>
+                                    
+                                  </svg>
+                                </section>
+                                <section>
+                                  <h3>Why the Play! framework?</h3>
+                                </section>
+                                <section>
+                                  <h3>Why the Angularjs framework?</h3>
+                                </section>
+                                <section>
+                                  <h3>Proper javascript programming</h3>
+                                </section>
+                                <section>
+                                  <h3>Deployment and operations</h3>
+                                </section>
+                                <section>
+                                  <h3>Improvements</h3>
+                                </section>
 
 			</div>
 
@@ -121,6 +215,8 @@
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+                                width: 960,
+                                height: 700,
 				controls: true,
 				progress: true,
 				history: true,
