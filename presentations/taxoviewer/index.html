@@ -123,8 +123,8 @@
               </g>
             </g>
           </svg>
-          </section>
-          <section data-transition="none">
+        </section>
+        <section data-transition="none">
           <svg width="960" height="700" viewBox="0 0 960 700">
             <defs>
               <marker id="head-down" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
@@ -208,71 +208,100 @@
             </g>
           </svg>
         </section>
-	<!-- Yaidom -->
-        <section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
-
+        <section data-transition="convex">
+          <h3>What is a taxonomy?</h3>    
+          <ul>
+            <li class="fragment" data-fragment-index="1">Lots of XML files, containing...</li>
+            <li class="fragment" data-fragment-index="2"><a href="http://nltaxonomie.nl/9.0/basis/venj/items/venj-bw2-data.xsd">Concept definitions (xsd's)</a></li>
+            <li class="fragment" data-fragment-index="3"><a href="http://nltaxonomie.nl/9.0/report/kvk/linkroles/kvk-balance-sheet-model-d-pre.xml">Meta-information about these concepts (linkbases)</a></li>
+          </ul>
+        </section>
+        <section>
           <svg width="960" height="700" viewBox="0 0 960 700">
             <defs>
-              <marker id="head-down" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
-                <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"></path>
+              <marker id="head-down-2" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
+                <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
               </marker>
-              <marker id="head-up" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
-                <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"></path>
+              <marker id="head-up-2" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
+                <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
               </marker>
             </defs>
             <g transform="translate(200,125)">
-              <rect width="150" height="75" x="0" y="0" style="fill:white;stroke-width:1;stroke:black;"></rect>
-              <path d="M50 75 V200" style="stroke:black;stroke-width:1;" marker-end="url(#head-down)"></path>
-              <path d="M100 80 V200" style="stroke:black;stroke-width:1;" marker-start="url(#head-up)"></path>
+              <rect width="150" height="75" x="0" y="0" 
+                    style="fill:white;stroke-width:1;stroke:black;"/>
+              <text x="40" y="45" font-size="20">Client 1</text>
+              <path d="M50 75 V200" 
+                    style="stroke:black;stroke-width:1;"
+                    marker-end="url(#head-down-2)"/>
+              <text x="-90" y="135" font-size="15">GET /concept/labels</text>
+              <path d="M100 80 V200" 
+                    style="stroke:black;stroke-width:1;"
+                    marker-start="url(#head-up-2)"/>
+              <text x="110" y="135" font-size="15">JSON  {...}</text>
             </g>
             <g transform="translate(600,125)">
-              <rect width="150" height="75" x="0" y="0" style="fill:white;stroke-width:1;stroke:black;"></rect>
-              <path d="M50 75 V200" style="stroke:black;stroke-width:1;" marker-end="url(#head-down)"></path>
-              <path d="M100 80 V200" style="stroke:black;stroke-width:1;" marker-start="url(#head-up)"></path>
+              <rect width="150" height="75" x="0" y="0" 
+                    style="fill:white;stroke-width:1;stroke:black;"/>
+              <text x="40" y="45" font-size="20">Client N</text>
+              <path d="M50 75 V200" 
+                    style="stroke:black;stroke-width:1;"
+                    marker-end="url(#head-down-2)"/>
+              <text x="-110" y="135" font-size="15">GET /presentationTree</text>
+              <path d="M100 80 V200" 
+                    style="stroke:black;stroke-width:1;"
+                    marker-start="url(#head-up-2)"/>
+              <text x="110" y="135" font-size="15">JSON  {...}</text>
             </g>
-            <path d="M20 350 H920" style="stroke:black;"></path>
+            <path d="M20 350 H920" style="stroke:black;"/>
             <g transform="translate(150, 360)">
-              <rect width="640" height="90" style="fill:white;stroke:black;"></rect>
+              <rect width="640" height="90"
+                    style="fill:white;stroke:black;"/>
               <g transform="translate(260, 25)">
                 <text x="0" y="0" font-size="20">REST API</text>
-                <text x="0" y="25" font-size="20">/concept/resources</text>
+                <text x="0" y="25" font-size="20">/concept/references</text>
                 <text x="0" y="50" font-size="20">/dtsGraph</text>
               </g>
             </g>
             <g transform="translate(150, 455)">
-              <rect width="640" height="30" style="fill:white;stroke:black;"></rect>
+              <rect width="640" height="30"
+                    style="fill:white;stroke:black;"/>
               <g transform="translate(260, 22)">
                 <text x="0" y="0" font-size="20">TQA</text>
               </g>
             </g>
             <g transform="translate(150, 490)">
-              <rect width="640" height="30" style="fill:red;stroke:black;"></rect>
+              <rect width="640" height="30"
+                    style="fill:Cyan;fill-opacity:0.4;stroke:black;"/>
               <g transform="translate(260, 22)">
                 <text x="0" y="0" font-size="20">Yaidom</text>
               </g>
             </g>
             <g transform="translate(150, 525)">
               <g transform="translate(0, 0)">
-                <rect width="153" height="60" style="fill:white;stroke:black;"></rect>
-                <text x="55" y="40" font-size="20">XML</text>
+                <rect width="153" height="60"
+                      style="fill:white;stroke:black;"/>
+                <text x="55" y="35" font-size="20">XML</text>
               </g>
               <g transform="translate(163, 0)">
-                <rect width="152" height="60" style="fill:white;stroke:black;"></rect>
-                <text x="55" y="40" font-size="20">XML</text>
+                <rect width="152" height="60"
+                      style="fill:white;stroke:black;"/>
+                <text x="55" y="35" font-size="20">XML</text>
               </g>
               <g transform="translate(325, 0)">
-                <rect width="152" height="60" style="fill:white;stroke:black;"></rect>
-                <text x="55" y="40" font-size="20">XML</text>
+                <rect width="152" height="60"
+                      style="fill:white;stroke:black;"/>
+                <text x="55" y="35" font-size="20">XML</text>
               </g>
               <g transform="translate(487, 0)">
-                <rect width="153" height="60" style="fill:white;stroke:black;"></rect>
-                <text x="55" y="40" font-size="20">XML</text>
+                <rect width="153" height="60"
+                      style="fill:white;stroke:black;"/>
+                <text x="55" y="35" font-size="20">XML</text>
               </g>
             </g>
-            
           </svg>
         </section>
-        <section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+        <!-- Yaidom -->
+        <section>
           <h3>Why yaidom for XML processing?</h3>
           <ul>
             <li>An XML query and transformation API</li>
@@ -287,7 +316,7 @@
         <section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
           <p>Finding child elements:</p>
           <p><pre><code>val contexts = xbrlInstance filterChildElems { e =>
-  e.resolvedName == EName(XbrliNs, "context")
+        e.resolvedName == EName(XbrliNs, "context")
         }</code></pre></p>
 <p><pre><code>val units = xbrlInstance.filterChildElems(withEName(XbrliNs, "unit"))</code></pre></p>
 <p><pre><code>val optNamespaces = Set(Option(XbrliNs), Option(LinkNs))
@@ -327,67 +356,92 @@
         }</code></pre></p>
 </section>
 <!-- TQA -->
-<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
-  <svg width="960" height="700">
+<section>
+  <svg width="960" height="700" viewBox="0 0 960 700">
     <defs>
-      <marker id="head-down" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
-        <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"></path>
+      <marker id="head-down-3" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
+        <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
       </marker>
-      <marker id="head-up" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
-        <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"></path>
+      <marker id="head-up-3" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
+        <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
       </marker>
     </defs>
     <g transform="translate(200,125)">
-      <rect width="150" height="75" x="0" y="0" style="fill:white;stroke-width:1;stroke:black;"></rect>
-      <path d="M50 75 V200" style="stroke:black;stroke-width:1;" marker-end="url(#head-down)"></path>
-      <path d="M100 80 V200" style="stroke:black;stroke-width:1;" marker-start="url(#head-up)"></path>
+      <rect width="150" height="75" x="0" y="0" 
+            style="fill:white;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client 1</text>
+      <path d="M50 75 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-end="url(#head-down-3)"/>
+      <text x="-90" y="135" font-size="15">GET /concept/labels</text>
+      <path d="M100 80 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-start="url(#head-up-3)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
     </g>
     <g transform="translate(600,125)">
-      <rect width="150" height="75" x="0" y="0" style="fill:white;stroke-width:1;stroke:black;"></rect>
-      <path d="M50 75 V200" style="stroke:black;stroke-width:1;" marker-end="url(#head-down)"></path>
-      <path d="M100 80 V200" style="stroke:black;stroke-width:1;" marker-start="url(#head-up)"></path>
+      <rect width="150" height="75" x="0" y="0" 
+            style="fill:white;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client N</text>
+      <path d="M50 75 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-end="url(#head-down-3)"/>
+      <text x="-110" y="135" font-size="15">GET /presentationTree</text>
+      <path d="M100 80 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-start="url(#head-up-3)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
     </g>
-    <path d="M20 350 H920" style="stroke:black;"></path>
+    <path d="M20 350 H920" style="stroke:black;"/>
     <g transform="translate(150, 360)">
-      <rect width="640" height="90" style="fill:white;stroke:black;"></rect>
+      <rect width="640" height="90"
+            style="fill:white;stroke:black;"/>
       <g transform="translate(260, 25)">
         <text x="0" y="0" font-size="20">REST API</text>
-        <text x="0" y="25" font-size="20">/concept/resources</text>
+        <text x="0" y="25" font-size="20">/concept/references</text>
         <text x="0" y="50" font-size="20">/dtsGraph</text>
       </g>
     </g>
     <g transform="translate(150, 455)">
-      <rect width="640" height="30" style="fill:red;stroke:black;"></rect>
+      <rect width="640" height="30"
+            style="fill:Cyan;fill-opacity:0.4;stroke:black;"/>
       <g transform="translate(260, 22)">
         <text x="0" y="0" font-size="20">TQA</text>
       </g>
     </g>
     <g transform="translate(150, 490)">
-      <rect width="640" height="30" style="fill:white;stroke:black;"></rect>
+      <rect width="640" height="30"
+            style="fill:white;stroke:black;"/>
       <g transform="translate(260, 22)">
         <text x="0" y="0" font-size="20">Yaidom</text>
       </g>
     </g>
     <g transform="translate(150, 525)">
       <g transform="translate(0, 0)">
-        <rect width="153" height="60" style="fill:white;stroke:black;"></rect>
-        <text x="55" y="40" font-size="20">XML</text>
+        <rect width="153" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(163, 0)">
-        <rect width="152" height="60" style="fill:white;stroke:black;"></rect>
-        <text x="55" y="40" font-size="20">XML</text>
+        <rect width="152" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(325, 0)">
-        <rect width="152" height="60" style="fill:white;stroke:black;"></rect>
-        <text x="55" y="40" font-size="20">XML</text>
+        <rect width="152" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(487, 0)">
-        <rect width="153" height="60" style="fill:white;stroke:black;"></rect>
-        <text x="55" y="40" font-size="20">XML</text>
+        <rect width="153" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
     </g>
-    
   </svg>
+</section>
+<section>
+  <h2>TQA</h2>
 </section>
 <section data-background="#8b0000" data-transition="zoom">
   <svg id="tornit-name" class="fragment" data-fragment-index="1" width="450" height="150px">
@@ -416,19 +470,6 @@
   </svg> 
   <h5 class="fragment" data-fragment-index="2" id="front-page-header">An XBRL Taxonomy Viewer</h5>
 </section>
-<section data-transition="convex">
-  <h3>What is a taxonomy viewer?</h3>
-</section>
-<section data-transition="convex">
-  <h3>What is a taxonomy?</h3>
-  
-  <ul>
-    <li class="fragment" data-fragment-index="1">Lots of XML files, containing...</li>
-    <li class="fragment" data-fragment-index="2"><a href="http://nltaxonomie.nl/9.0/basis/venj/items/venj-bw2-data.xsd">Concept definitions (xsd's)</a></li>
-    <li class="fragment" data-fragment-index="3"><a href="http://nltaxonomie.nl/9.0/report/kvk/linkroles/kvk-balance-sheet-model-d-pre.xml">Meta-information about these concepts (linkbases)</a></li>
-  </ul>
-  
-</section>
 <section>
   <h3>What is a taxonomy viewer?</h3>
   <ul>
@@ -455,49 +496,49 @@
     <h2>Demo Tornit</h2>
   </section>
 </section>
-
-<!-- Example of nested vertical slides -->
-<section>
-  <h1>The Stack</h1>
-  <!--Describe the technological stack: Play/Angular-->
-</section>
 <section>
   <svg width="960" height="700" viewBox="0 0 960 700">
     <defs>
-      <marker id="head-down" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
+      <marker id="head-down-4" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
         <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
       </marker>
-      <marker id="head-up" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
+      <marker id="head-up-4" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
         <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
       </marker>
     </defs>
     <g transform="translate(200,125)">
       <rect width="150" height="75" x="0" y="0" 
             style="fill:white;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client 1</text>
       <path d="M50 75 V200" 
             style="stroke:black;stroke-width:1;"
-            marker-end="url(#head-down)"/>
+            marker-end="url(#head-down-4)"/>
+      <text x="-90" y="135" font-size="15">GET /concept/labels</text>
       <path d="M100 80 V200" 
             style="stroke:black;stroke-width:1;"
-            marker-start="url(#head-up)"/>
+            marker-start="url(#head-up-4)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
     </g>
     <g transform="translate(600,125)">
       <rect width="150" height="75" x="0" y="0" 
             style="fill:white;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client N</text>
       <path d="M50 75 V200" 
             style="stroke:black;stroke-width:1;"
-            marker-end="url(#head-down)"/>
+            marker-end="url(#head-down-4)"/>
+      <text x="-110" y="135" font-size="15">GET /presentationTree</text>
       <path d="M100 80 V200" 
             style="stroke:black;stroke-width:1;"
-            marker-start="url(#head-up)"/>
+            marker-start="url(#head-up-4)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
     </g>
     <path d="M20 350 H920" style="stroke:black;"/>
     <g transform="translate(150, 360)">
       <rect width="640" height="90"
-            style="fill:white;stroke:black;"/>
+            style="fill:Cyan;fill-opacity:0.4;stroke:black;"/>
       <g transform="translate(260, 25)">
         <text x="0" y="0" font-size="20">REST API</text>
-        <text x="0" y="25" font-size="20">/concept/resources</text>
+        <text x="0" y="25" font-size="20">/concept/references</text>
         <text x="0" y="50" font-size="20">/dtsGraph</text>
       </g>
     </g>
@@ -519,25 +560,24 @@
       <g transform="translate(0, 0)">
         <rect width="153" height="60"
               style="fill:white;stroke:black;"/>
-        <text x="55" y="40" font-size="20">XML</text>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(163, 0)">
         <rect width="152" height="60"
               style="fill:white;stroke:black;"/>
-        <text x="55" y="40" font-size="20">XML</text>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(325, 0)">
         <rect width="152" height="60"
               style="fill:white;stroke:black;"/>
-        <text x="55" y="40" font-size="20">XML</text>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
       <g transform="translate(487, 0)">
         <rect width="153" height="60"
               style="fill:white;stroke:black;"/>
-        <text x="55" y="40" font-size="20">XML</text>
+        <text x="55" y="35" font-size="20">XML</text>
       </g>
     </g>
-    
   </svg>
 </section>
 <section>
@@ -558,6 +598,90 @@
     <li>Clear, lightweight operation semantics</li>
     <li>REST is <strong>alot</strong> more than this: a whole philosophy (see Roy Fielding's PhD thesis)</li>
   </ul>
+</section>
+<section>
+  <svg width="960" height="700" viewBox="0 0 960 700">
+    <defs>
+      <marker id="head-down-5" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
+        <path d="M0,0 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
+      </marker>
+      <marker id="head-up-5" markerWidth="10" markerHeight="20" refX="5" refY="9.9"> 
+        <path d="M0,10 H10 L5,5 Z" style="stroke-width:1;stroke:black;fill:black;"/>
+      </marker>
+    </defs>
+    <g transform="translate(200,125)">
+      <rect width="150" height="75" x="0" y="0" 
+            style="fill:Cyan;fill-opacity:0.4;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client 1</text>
+      <path d="M50 75 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-end="url(#head-down-5)"/>
+      <text x="-90" y="135" font-size="15">GET /concept/labels</text>
+      <path d="M100 80 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-start="url(#head-up-5)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
+    </g>
+    <g transform="translate(600,125)">
+      <rect width="150" height="75" x="0" y="0" 
+            style="fill:Cyan;fill-opacity:0.4;stroke-width:1;stroke:black;"/>
+      <text x="40" y="45" font-size="20">Client N</text>
+      <path d="M50 75 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-end="url(#head-down-5)"/>
+      <text x="-110" y="135" font-size="15">GET /presentationTree</text>
+      <path d="M100 80 V200" 
+            style="stroke:black;stroke-width:1;"
+            marker-start="url(#head-up-5)"/>
+      <text x="110" y="135" font-size="15">JSON  {...}</text>
+    </g>
+    <path d="M20 350 H920" style="stroke:black;"/>
+    <g transform="translate(150, 360)">
+      <rect width="640" height="90"
+            style="fill:white;stroke:black;"/>
+      <g transform="translate(260, 25)">
+        <text x="0" y="0" font-size="20">REST API</text>
+        <text x="0" y="25" font-size="20">/concept/references</text>
+        <text x="0" y="50" font-size="20">/dtsGraph</text>
+      </g>
+    </g>
+    <g transform="translate(150, 455)">
+      <rect width="640" height="30"
+            style="fill:white;stroke:black;"/>
+      <g transform="translate(260, 22)">
+        <text x="0" y="0" font-size="20">TQA</text>
+      </g>
+    </g>
+    <g transform="translate(150, 490)">
+      <rect width="640" height="30"
+            style="fill:white;stroke:black;"/>
+      <g transform="translate(260, 22)">
+        <text x="0" y="0" font-size="20">Yaidom</text>
+      </g>
+    </g>
+    <g transform="translate(150, 525)">
+      <g transform="translate(0, 0)">
+        <rect width="153" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
+      </g>
+      <g transform="translate(163, 0)">
+        <rect width="152" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
+      </g>
+      <g transform="translate(325, 0)">
+        <rect width="152" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
+      </g>
+      <g transform="translate(487, 0)">
+        <rect width="153" height="60"
+              style="fill:white;stroke:black;"/>
+        <text x="55" y="35" font-size="20">XML</text>
+      </g>
+    </g>
+  </svg>
 </section>
 <section>
   {% image angular.png alt="Angular Logo" style="border:none;width:200px;" %}
