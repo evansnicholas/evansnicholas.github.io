@@ -304,13 +304,13 @@
         <section>
           <h3>Why yaidom for XML processing?</h3>
           <ul>
-            <li>An XML query and transformation API</li>
-            <li>Leverages Scala and the Scala Collections API</li>
-            <li>The XML query API is small and uniform</li>
-            <li>It is offered by multiple element implementations</li>
-            <li>Including your own custom ones</li>
-            <li>Very precise XML namespace support</li>
-            <li>Full control over XML parsing and serialization</li>
+            <li class="fragment" data-fragment-index="1">An XML query and transformation API</li>
+            <li class="fragment" data-fragment-index="2">Leverages Scala and the Scala Collections API</li>
+            <li class="fragment" data-fragment-index="3">The XML query API is small and uniform</li>
+            <li class="fragment" data-fragment-index="4">It is offered by multiple element implementations</li>
+            <li class="fragment" data-fragment-index="4">Including your own custom ones</li>
+            <li class="fragment" data-fragment-index="5">Very precise XML namespace support</li>
+            <li class="fragment" data-fragment-index="6">Full control over XML parsing and serialization</li>
           </ul>
         </section>
         <section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
@@ -328,33 +328,50 @@
 <p><pre><code>val nestedFacts = topLevelFacts.flatMap(e => e.findAllElems)</code></pre></p>
 <p><pre><code>val allFacts = topLevelFacts.flatMap(e => e.findAllElemsOrSelf)</code></pre></p>
 </section>
-<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
+<section>
   <h3>One query API, multiple implementations</h3>
   <ul>
-    <li>Default (yaidom) immutable "simple" elements</li>
-    <li>Immutable "indexed" elements, knowing their ancestry</li>
-    <li>Immutable "resolved" elements, with sensible equality</li>
-    <li>Yaidom wrappers for DOM</li>
-    <li>Yaidom wrappers for Scala XML</li>
-    <li>Yaidom wrappers for Saxon NodeInfo</li>
-    <li>etc.</li>
+    <li class="fragment" data-fragment-index="1">Default (yaidom) immutable "simple" elements</li>
+    <li class="fragment" data-fragment-index="2">Immutable "indexed" elements, knowing their ancestry</li>
+    <li class="fragment" data-fragment-index="3">Immutable "resolved" elements, with sensible equality</li>
+    <li class="fragment" data-fragment-index="4">Yaidom wrappers for DOM</li>
+    <li class="fragment" data-fragment-index="5">Yaidom wrappers for Scala XML</li>
+    <li class="fragment" data-fragment-index="6">Yaidom wrappers for Saxon NodeInfo</li>
+    <li class="fragment" data-fragment-index="7">etc.</li>
   </ul>
-  <p>The preceding examples work for all these implementations!</p>
+  <p class="fragment" data-fragment-index="7">The preceding examples work for all these implementations!</p>
 </section>
-<section class="future" aria-hidden="true" style="top: 330px; display: none;" hidden="">
-  <p>Indeed leverages Scala Collections:</p>
-  <p><pre><code>val allFacts = topLevelFacts.flatMap(e => e.findAllElemsOrSelf)</code></pre></p>
-  <p>Vocabulary: filterChildElems, filterElems, filterElemsOrSelf</p>
-  <p>Indeed <em>uniform</em> API backed by <em>multiple</em> implementations</p>
-  <p>Indeed precise namespace support:</p>
-  <p><pre><code>val contexts =
-        xbrlInstance.filterChildElems(withEName(XbrliNs, "context"))</code></pre></p>
-  <p><pre><code>val optNamespaces = Set(Option(XbrliNs), Option(LinkNs))
-        val topLevelFacts =
-        xbrlInstance filterChildElems { e =>
-        !optNamespaces.contains(e.resolvedName.namespaceUriOption)
-        }</code></pre></p>
+<section> 
+  <h3>Namespace Support</h3>
+  <ul>
+    <li>Most XML libraries do not distinguish <em>qualified</em> from <em>expanded</em> names </li> 
+    <li>That makes it hard to talk precisely about namespaces</li> 
+    <li>Evan Lenz (in <a href="http://www.lenzconsulting.com/namespaces/">Understanding Namespaces</a>) does make this distinction</li> 
+    <li>So does the Namespaces specification</li> 
+    <li>And so does yaidom</li> 
+    <li>Clarifies the properties holding for namespace declarations, in-scope namespaces, QNames and ENames</li> 
+    <li>Enables fine-grained control of namespace resolution</li> 
+    <li>This has already been helpful in an XBRL (formula) context</li>
+  </ul> 
 </section>
+<section>
+  <h3>Yaidom highlights</h3>
+  <ul>
+    <li>Leverages Scala Collections:
+    <pre><code>val allFacts = topLevelFacts.flatMap(e => e.findAllElemsOrSelf)</code></pre></li>
+    <li>Vocabulary: filterChildElems, filterElems, filterElemsOrSelf</li>
+    <li><em>Uniform</em> API backed by <em>multiple</em> implementations</li>
+    <li>Precise namespace support:
+      <pre><code class="scala">val contexts =
+  xbrlInstance.filterChildElems(withEName(XbrliNs, "context"))</code></pre>
+    <pre><code>val optNamespaces = Set(Option(XbrliNs), Option(LinkNs))
+val topLevelFacts =
+  xbrlInstance filterChildElems { e =>
+    !optNamespaces.contains(e.resolvedName.namespaceUriOption)
+  }</code></pre></li>
+  </ul>
+</section>	
+ 
 <!-- TQA -->
 <section>
   <svg width="960" height="700" viewBox="0 0 960 700">
@@ -441,7 +458,21 @@
   </svg>
 </section>
 <section>
+  <section>
   <h2>TQA</h2>
+  <ul>
+    <li>TQA is a Taxonomy Query API</li>
+    <li>Multi-purpose: validation, rendering etc.</li>
+    <li>Practically read-only</li>
+    <li>Can be used at different levels of abstraction</li>
+    <li>Leverages Scala and yaidom</li>
+    <li>At the lowest level offers type-safe yaidom element wrappers</li>
+    <li>At the highest level supports semantic dimensional queries</li>
+  </ul>
+  </section>
+  <section>
+     <h2>Demo ...</h2>
+  </section>
 </section>
 <section data-background="#8b0000" data-transition="zoom">
   <svg id="tornit-name" class="fragment" data-fragment-index="1" width="450" height="150px">
@@ -737,7 +768,9 @@
   transition: 'slide', // none/fade/slide/convex/concave/zoom
 
   // Optional reveal.js plugins
-  dependencies: []
+  dependencies: [
+     //{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); }
+  ]
   });
   
   var animateTornit = new Vivus('tornit-name', {type: 'delayed', duration: 175, start: 'manual' });
