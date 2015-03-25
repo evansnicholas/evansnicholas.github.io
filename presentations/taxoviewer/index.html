@@ -217,6 +217,40 @@
           </ul>
         </section>
         <section>
+          <section>
+            <h3>What is an instance?</h3>
+          </section>
+          <section>
+<pre style="font-size:15px;line-height:10px;padding:15px;">
+&lt;xbrl&gt; <br/>
+  &lt;xbrli:context id="FY14d"&gt; <br/> 
+    &lt;xbrli:entity&gt;<br/>
+      &lt;xbrli:identifier scheme="http://www.kvk.nl/kvk-id"&gt;30267975<br/>
+      &lt;/xbrli:identifier&gt;<br/>
+    &lt;/xbrli:entity&gt;<br/>
+    &lt;xbrli:period&gt;<br/>
+      &lt;xbrli:startDate&gt;2014-01-01&lt;/xbrli:startDate&gt;<br/>
+      &lt;xbrli:endDate&gt;2014-12-31&lt;/xbrli:endDate&gt;<br/>
+    &lt;/xbrli:period&gt;<br/>
+  &lt;/xbrli:context&gt;<br/>
+  &lt;xbrli:unit id="EUR"&gt;<br/>
+    &lt;xbrli:measure&gt;iso4217:EUR&lt;/xbrli:measure&gt;<br/>
+  &lt;/xbrli:unit&gt;<br/>
+  &lt;venj-bw2-i:Equity contextRef="FY14d" <br/>
+                        unitRef="EUR" <br/>
+                        decimals="INF"&gt;2100000&lt;/venj-bw2-i:Equity&gt;<br/>
+  &lt;kvk-t:EntityAddressPresentation&gt;<br/>
+    &lt;nl-cd:POBoxNumber contextRef="FY14d"&gt;2312&lt;/nl-cd:POBoxNumber&gt;<br/>
+    &lt;nl-cd:PostalCodeNL contextRef="FY14d"&gt;2501CD&lt;/nl-cd:PostalCodeNL&gt;<br/>
+    &lt;nl-cd:PlaceOfResidenceNL contextRef="FY14d"&gt;Den Haag<br/>
+    &lt;/nl-cd:PlaceOfResidenceNL&gt; <br/>
+    &lt;nl-cd:CountryName contextRef="FY14d"&gt;Nederland&lt;/nl-cd:CountryName&gt;<br/>
+  &lt;/kvk-t:EntityAddressPresentation&gt;<br/>
+&lt;/xbrl&gt;<br/>
+</pre>
+          </section>
+        </section>
+        <section>
           <svg width="960" height="700" viewBox="0 0 960 700">
             <defs>
               <marker id="head-down-2" markerWidth="10" markerHeight="20" refX="5" refY="0.1"> 
@@ -302,7 +336,7 @@
         </section>
         <!-- Yaidom -->
         <section>
-          <h3>Why yaidom for XML processing?</h3>
+          <h3>What is yaidom?</h3>
           <ul>
             <li class="fragment" data-fragment-index="1">An XML query and transformation API</li>
             <li class="fragment" data-fragment-index="2">Leverages Scala and the Scala Collections API</li>
@@ -313,7 +347,40 @@
             <li class="fragment" data-fragment-index="6">Full control over XML parsing and serialization</li>
           </ul>
         </section>
-        <section>  
+        <section>
+          <section>
+            <h3>Yaidom examples</h3>
+            <ul>
+              <li class="fragment" data-fragment-index="1">Yaidom is shown by example code</li>
+              <li class="fragment" data-fragment-index="2">The examples use an XBRL <em>instance</em>, as XML</li>
+              <li class="fragment" data-fragment-index="3">Note: an instance is not taxonomy data (data vs. meta-data)</li>
+              <li class="fragment" data-fragment-index="4">An XBRL instance has facts ...</li>
+              <li class="fragment" data-fragment-index="5">with contexts ...</li>
+              <li class="fragment" data-fragment-index="6">and (if numeric) units ...</li>
+              <li class="fragment" data-fragment-index="7">which is all XML, queryable using yaidom</li>
+            </ul>
+          </section>
+          <section>
+<p>... TODO Picture of XBRL instance highlighting 1 fact, its context, and unit ...</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Yaidom examples (getting child elements)</h3>
+            <ul>
+              <li class="fragment" data-fragment-index="1">The XBRL instance is "just" XML</li>
+              <li class="fragment" data-fragment-index="2">Contexts are child elements of the root element</li>
+              <li class="fragment" data-fragment-index="3">So are units ...</li>
+              <li class="fragment" data-fragment-index="4">And so are top level facts</li>
+              <li class="fragment" data-fragment-index="5">Query them using yaidom verb <em>filterChildElems</em></li>
+            </ul>
+          </section>
+          <section>
+<p>... TODO Picture of XBRL instance highlighting 1 fact, its context, and unit, seen as just XML ...</p>
+          </section>
+        </section>
+        <section>
+            <h3>Yaidom examples (getting child elements)</h3>
             <p>Finding child elements:
               <pre><code data-trim class="scala">
 val contexts = xbrlInstance filterChildElems { e =>
@@ -329,10 +396,31 @@ val topLevelFacts =
   xbrlInstance filterChildElems { e =>
     !optNamespaces.contains(e.resolvedName.namespaceUriOption)
   }</code></pre></p>
+        </section>
+        <section>
+          <section>
+            <h3>Yaidom examples (getting descendant elements)</h3>
+            <ul>
+              <li class="fragment" data-fragment-index="1">Nested facts are descendants of top level facts</li>
+              <li class="fragment" data-fragment-index="2">Query them using yaidom verb <em>filterElems</em></li>
+              <li class="fragment" data-fragment-index="3">All facts are descendants-or-self of top level facts</li>
+              <li class="fragment" data-fragment-index="4">Query them using yaidom verb <em>filterElemsOrSelf</em></li>
+              <li class="fragment" data-fragment-index="5">The 3 yaidom verbs so far give a good taste of yaidom querying</li>
+            </ul>
+          </section>
+          <section>
+<p>... TODO Picture of XBRL instance with nested facts, seen as just XML ...</p>
+          </section>
+        </section>
+        <section>
+            <h3>Yaidom examples (getting descendant elements)</h3>
 <p>Finding descendant(-or-self) elements:
-  <pre><code class="scala">val nestedFacts = topLevelFacts.flatMap(e => e.findAllElems)</code></pre>
-  <pre><code class="scala">val allFacts = topLevelFacts.flatMap(e => e.findAllElemsOrSelf)</code></pre></p>
-</section>
+  <pre><code class="scala">val nestedFacts =
+  topLevelFacts.flatMap(e => e.filterElems(_.resolvedName.namespaceUriOption != Some(XbrliNs)))</code></pre>
+  <pre><code class="scala">val allFacts =
+  topLevelFacts.flatMap(e => e.filterElemsOrSelf(_.resolvedName.namespaceUriOption != Some(XbrliNs)))</code></pre></p>
+<p>Non-trivial queries combine facts with contexts and units ...</p>
+        </section>
 <section>
   <h3>One query API, multiple implementations</h3>
   <ul>
@@ -340,41 +428,23 @@ val topLevelFacts =
     <li class="fragment" data-fragment-index="2">Immutable "indexed" elements, knowing their ancestry</li>
     <li class="fragment" data-fragment-index="3">Immutable "resolved" elements, with sensible equality</li>
     <li class="fragment" data-fragment-index="4">Yaidom wrappers for DOM</li>
-    <li class="fragment" data-fragment-index="5">Yaidom wrappers for Scala XML</li>
-    <li class="fragment" data-fragment-index="6">Yaidom wrappers for Saxon NodeInfo</li>
-    <li class="fragment" data-fragment-index="7">etc.</li>
+    <li class="fragment" data-fragment-index="5">Yaidom wrappers for Saxon NodeInfo</li>
+    <li class="fragment" data-fragment-index="6">etc.</li>
   </ul>
   <p class="fragment" data-fragment-index="7">The preceding examples work for all these implementations!</p>
+  <p class="fragment" data-fragment-index="8">And they are easy to bootstrap (little code needed)</p>
 </section>
 <section> 
-  <h3>Namespace Support</h3>
+  <h3>Why yaidom? Why not XPath, Scala XML, etc.?</h3>
   <ul>
-    <li class="fragment" data-fragment-index="1">Most XML libraries do not distinguish <em>qualified</em> from <em>expanded</em> names </li> 
-    <li class="fragment" data-fragment-index="2">That makes it hard to talk precisely about namespaces</li> 
-    <li class="fragment" data-fragment-index="3">Evan Lenz (in <a href="http://www.lenzconsulting.com/namespaces/">Understanding Namespaces</a>) does make this distinction</li> 
-    <li class="fragment" data-fragment-index="4">So does the Namespaces specification</li> 
-    <li class="fragment" data-fragment-index="5">And so does yaidom</li> 
-    <li class="fragment" data-fragment-index="6">Clarifies the properties holding for namespace declarations, in-scope namespaces, QNames and ENames</li> 
-    <li class="fragment" data-fragment-index="7">Enables fine-grained control of namespace resolution</li> 
-    <li class="fragment" data-fragment-index="8">This has already been helpful in an XBRL (formula) context</li>
-  </ul> 
-</section>
-<section>
-  <h3>Yaidom highlights</h3>
-  <ul>
-    <li class="fragment" data-fragment-index="1">Leverages Scala Collections:
-    <pre><code class="scala">val allFacts = topLevelFacts.flatMap(e => e.findAllElemsOrSelf)</code></pre></li>
-    <li class="fragment" data-fragment-index="2">Vocabulary: filterChildElems, filterElems, filterElemsOrSelf</li>
-    <li class="fragment" data-fragment-index="3"><em>Uniform</em> API backed by <em>multiple</em> implementations</li>
-    <li class="fragment" data-fragment-index="4">Precise namespace support:
-      <pre><code class="scala" data-trim>
-val contexts = 
-  xbrlInstance.filterChildElems(withEName(XbrliNs, "context"))</code></pre>
-    <pre><code data-trim class="scala">
-val optNamespaces = Set(Option(XbrliNs), Option(LinkNs))
-val topLevelFacts = xbrlInstance filterChildElems { e =>
-  !optNamespaces.contains(e.resolvedName.namespaceUriOption)
-}</code></pre></li>
+    <li class="fragment" data-fragment-index="1">Just Scala, not cumbersome returned DOM node sets</li>
+    <li class="fragment" data-fragment-index="2">All of Scala as language (intermediate results, functions, OO, etc.)</li>
+    <li class="fragment" data-fragment-index="3">Scala Collections API used as <em>universal query language</em></li>
+    <li class="fragment" data-fragment-index="4">No XDM/XPath quirks (singleton sequences, "equality" etc.)</li>
+    <li class="fragment" data-fragment-index="5">Very fast</li>
+    <li class="fragment" data-fragment-index="6">Excellent namespace support</li>
+    <li class="fragment" data-fragment-index="7">One <em>uniform</em> XML query API, <em>multiple</em> implementations</li>
+    <li class="fragment" data-fragment-index="8">None of the Scala/Java alternatives offered this</li>
   </ul>
 </section>	
  
@@ -818,7 +888,7 @@ val topLevelFacts = xbrlInstance filterChildElems { e =>
     }
   });
 
-  hljs.initHighlightingOnLoad();
+ // hljs.initHighlightingOnLoad();
 </script>
 
 </body>
