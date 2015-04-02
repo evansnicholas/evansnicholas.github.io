@@ -95,6 +95,7 @@ ul.posts {
   .site .title a {
     color: #a00;
     text-decoration: none;
+    margin-left: 1em;
   }
 
   .site .title a:hover {
