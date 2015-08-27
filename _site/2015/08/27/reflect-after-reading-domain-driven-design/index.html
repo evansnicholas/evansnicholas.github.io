@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Reflect after Reading - Domain Driven Design</title>
+   <meta name="author" content="Nick Evans" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/assets/themes/tom/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/assets/themes/tom/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+
+  <div class="site">
+    <div class="title">
+      <a class="extra"  href="/">Blog</a>
+
+      <a class="extra" href="/archive.html">Archive</a>
+      <a class="extra" href="/pages/">Pages</a>
+    </div>
+  
+    
+<div id="post">
+  <h1>Reflect after Reading - Domain Driven Design</h1>
+  <p class="meta">
+    27 August 2015 
+    
+  </p>
+  <p>If you knew nothing about it, you could be forgiven for thinking that <em>Domain Driven Design: Tackling Complexity in the Heart Of Software</em> by Eric Evans was selling a Methodology.  The kind that is described (and derided) in <em>Peopleware</em> as “a general systems theory of how a whole class of thought-intensive work ought to be conducted”.  It ticks the boxes: it comes in a big fat book, you can take courses in it, and it claims to solve your software development woes once and for all…</p>
+
+<p>…Or does it?  <em>Domain Driven Design</em> ends by quoting Christopher Alexander, the architect-philosopher who also influenced the <em>Peopleware</em> authors.  Alexander argues that successful building projects are a result of “piecemeal growth” and “organic order” rather than the logical conclusion of a “master plan”.  Just like the <em>Peopleware</em> authors, Evans believes this conclusion is also applicable to the field of software engineering.  In <em>Domain Driven Design</em> Evans takes great care to avoid creating the illusion that DDD is a golden recipe for success (or even that it is a recipe at all).  Instead, the book is a very subtle and detailed exposition of a certain “attitude” that, when used to guide the development process, can lead to the creation of enterprise scale software that exhibits the “organic order” Alexander sought in his architectural projects.</p>
+
+<p>Domain Driven Design is a deep reflection on the process of software development, and the conclusions it reaches can be characterized as a philosophy: a way of thinking about and practicing software engineering.  These conclusions are structured into “analysis patterns” and illustrated with detailed examples from Evans’ career as a software engineer.  DDD is 10 years old and still relevant (amazing for the software industry!), despite the fact it emerged from a world when object oriented programming was all the rage, Extreme Programming didn’t feel like a gimmick and the answer to every data persistence question was “relational database”. It is testimony to the depth of the insights in DDD that in a world dominated by microservices, functional programming and NoSQL databases it continues to thrive and help developers structure complex software projects.</p>
+
+<h2 id="the-philosophy">The philosophy</h2>
+<p>The core concept in the DDD philosophy is the <em>domain model</em>.  A model is defined as “a system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain”.  But what concrete form does this model take?  How is this “system of abstractions” expressed?  Is it contained in a modeling tool?  Is it described in documentation?  Is it the code itself?  While all of these contribute, the most important expression of the model in DDD is the <small>UBIQUITOUS LANGUAGE</small>.  This is the language used by the development team when discussing their ideas about the software.  It is the language that is employed when communicating with domain experts.  It provides the vocabulary for naming classes and methods in the software itself.  In DDD, the model does not have a canonical expression, but instead permeates every aspect of the software development process.</p>
+
+<p>Using and working with the model takes discipline.  Developers have to pay close attention to their use of language, and extract the model from conversations with domain experts.  The ultimate goal of a team applying DDD is to arrive at what Evans refers to as a <small>DEEP MODEL</small>, expressed in code through the application of <small>SUPPLE DESIGN</small>.  A deep model can be said to “carve nature at the joints” (in Plato’s words), or as Evans puts it, follows the <small>CONCEPTUAL CONTOURS</small> of the domain.  A deep model provides a representation of the domain that enables rich applications to be built with relative ease.  It allows new functionality to slot in beside existing functionality.  Changing requirements can be accommodated without a complete rethink of the application structure.  In keeping with the teachings of Agile and Extreme Programming (XP), a deep model is arrived at through numerous iterations and refactorings.  Furthermore, Evans describes how a process of “distillation” allows the development team to strip the model of superfluous elements and reduce it to its core.  During the development process, the team must keep a close tab on the evolution of the ubiquitous language and ensure that any changes are reflected in the code (and documentation).  Furthermore, any difficulty or awkwardness experienced during development should be taken as a hint that the model needs to be adjusted.  Through this process of constant refinement, a team can produce a deep model that provides real value to the business.</p>
+
+<h2 id="the-patterns">The patterns</h2>
+
+<p>In order to help developers arrive at a deep model, Evans suggests several patterns that can be used to structure the software.  These patterns are abstract enough to be applicable to a variety of domains, yet precise enough to be useful.  The patterns can broadly be divided into two categories, depending on the level of abstraction at which they are applicable.  The first category contains patterns that are applicable at the level of objects and classes.  In this sense they are similar to the “gang of four” design patterns.  The patterns in the second category form the basis for what Evans refers to as <small>STRATEGIC DESIGN</small>.  These are applicable at a much higher level of abstraction and are intended to help structure software at the level of an entire enterprise.  Although this sounds worryingly over-ambitious, one of the fundamental principles of strategic design is that all-encompassing models are impossible to create.  For this reason, structure at the level of the enterprise relies on carving up the software into <small>BOUNDED CONTEXTS</small> and defining clearly how these contexts interact.  I have gathered a small selection of the most memorable patterns.  In the book all of these are illustrated by detailed examples.</p>
+
+<p><small><strong>ENTITY</strong></small> An element of the model that has long lasting identity, for instance a Customer in a typical CRM tool.  Throughout its lifecycle, an entity may be represented in memory by different objects at different times.  Special care must be taken when trying to identify entities in terms of their attributes.  For instance, the “name” field is not a good way to identify a customer (many customers are likely to have the same name).</p>
+
+<p><small><strong>AGGREGATE</strong></small> A class representing an entity will often participate in relationships with other classes.  These networks of classes maintain application state that must often respect certain invariants: an update to a certain part of the model entails an update to another part as well.  In order to make these dependencies manageable, Evans introduces the <small>AGGREGATE</small> pattern.  An aggregate is a collection of interrelated classes whose state is governed by certain invariants.  All updates to the aggregate must go through a certain special class referred to as the <small>AGGREGATE ROOT</small>.  This class is responsible for orchestrating state updates in such a way that invariants are never violated.  Because all updates must go through the aggregate root, the state of the aggregate is shielded from incorrect modifications by possible clients.</p>
+
+<p><small><strong>REPOSITORY</strong></small> A pattern that addresses the difficulties of persisting data.  A repository is a class that offers an API for finding and querying objects that may have been persisted to a database.  The main objective of the repository pattern is to keep the domain layer insulated from the technical infrastructure needed to access the database.  A repository is not an object-relational mapper, although it may be implemented using one.  When using repositories, Evans offers the following words of caution “client code ignores <small>REPOSITORY</small> implementation; developers do not”.  The take-away message is that while hiding database access code behind an <small>INTENTION REVEALING INTERFACE</small> (another DDD pattern) makes for cleaner code, it can have dire performance consequences if developers are not aware of how the repository queries are implemented.  The tension between performance and conceptual clarity of the code is what makes persisting data such a fascinating and challenging topic.</p>
+
+<p><small><strong>VALUE OBJECT</strong></small> A class that is the collection of its attributes.  Two value objects are equal when all their attributes are equal (in the Scala programming language case classes are the perfect tool for representing value objects).  These combine particularly well with the next pattern.</p>
+
+<p><small><strong>SIDE EFFECT FREE FUNCTION</strong></small> A function that computes its result without performing any side effects.  In the functional programming community this type of function is also called a “pure function”.  Pure functions are desirable because they are easy to reason about.  The result they produce is a function (in the mathematical sense) of their input.  Using value objects as the parameters and return value of a side effect free function makes for clean and elegant code.  Side effect free functions are also easy to unit test.</p>
+
+<p><small><strong>BOUNDED CONTEXT</strong></small> The core pattern in terms of which the other strategic design patterns are expressed.  A bounded context is a coherent model that stands on its own and is isolated from other models.  When creating a very large application it will be impossible to capture all aspects of the domain in the same model.  Nevertheless, different parts of the application (different contexts) will overlap in their coverage of the domain.  Although good software engineering practice would seem to point towards model re-use as much as possible, Evans shows that careless model sharing can lead to great difficulties.  For this reason, drawing a <small>CONTEXT MAP</small> and thinking clearly about the relationships between the models used by different parts of the application is crucial to creating software that can scale conceptually to cover the domain of a large enterprise.</p>
+
+<h2 id="the-future-the-present">The future (the present)</h2>
+
+<p>It is remarkable to note that DDD has managed to stay in the tech industry’s consciousness for over ten years.  This is a sign that the insight it offers is of significant value.  In his interview with software engineering radio, Evans reflects on the evolution of DDD, and the applicability of its concepts in today’s tech landscape.  In particular, he discusses the following subjects: microservices, event sourcing/CQRS (Command Query Responsibility Segregation), functional programming, the actor model and NoSQL.</p>
+
+<p><small><strong>MICROSERVICES</strong></small> Evans explains that in the early days of DDD there was no technical support for implementing bounded contexts.  It was down to the discipline of development teams to ensure that their models were kept clean and had clear relationships with the models of other teams.  Microservices solve this problem by providing clear boundaries for the validity of a model.  Microservices are meant to be standalone and sealed off from their environment, communicating with other services through a well defined interface.  Interestingly, Evans equates a bounded service with a cluster of microservices rather than with a single one.  The microservices within such a cluster speak the same language and therefore can communicate effortlessly with each other.  Special care is needed to provide appropriate translation when a microservice from one bounded context calls a microservice from a different bounded context.  Structuring a code base into microservices forces developers to think about the boundaries within which their model applies.</p>
+
+<p><small><strong>EVENT SOURCING/CQRS</strong></small> Event sourcing and CQRS are two architectural styles that were developed by DDD practitioners searching for better modeling strategies.  Precisely because they were focused on finding the best way to express the core concepts of the domain in their software, these practitioners were led beyond the patterns that Evans presents in his book to discover ones of their own.  The key insight that inspired these approaches was that instead of focusing on <em>state</em>, a domain model should be structured around <em>state change</em>.  State is then reconstructed from state change by “rolling up” a sequence of changes.  State changes are immutable, which means they are better suited for supporting a scalable distributed system.  They also match well with the fundamental principles of functional programming…</p>
+
+<p><small><strong>FUNCTIONAL PROGRAMMING</strong></small> Immutability and pure functions are two fundamental principles of functional programming.  We have already seen that DDD can be made to work with immutable domain objects by applying the modeling techniques of event sourcing.  As for pure functions, we saw in the previous section that they are already an important pattern within DDD.</p>
+
+<p><small><strong>ACTOR MODEL</strong></small> The actor model is a way of structuring programs to make them easy to execute in parallel over distributed computing resources.  Akka is a popular implementation of the actor model in the Scala programming language.  In this context, the aggregate pattern gains a new lease of life.  The principle motivation behind the aggregate pattern was to provide a mechanism to ensure that application state did not become corrupted by incomplete updates.  In the context of the actor model, an aggregate can be implemented by a group of actors managed by one actor which represents the aggregate root.  This root actor is responsible for receiving any messages from the application and then updating its child actors appropriately.  Because actors are completely shielded from each other and cannot access each other’s state, the actor model is a very appropriate technical basis for implementing the aggregate pattern.</p>
+
+<p><small><strong>NOSQL</strong></small> Although Evans concedes that the catalyst for the emergence of NoSQL databases was improved performance, he explains that their most important contribution is actually the introduction of new modeling techniques to the database realm.  He suggests that NoSQL should actually be read as an acronym for “Not Only SQL”.  At the time DDD was written, the only way to persist data was in a relational database.  Although this model is applicable in many cases, it is not always a good fit.  The emergence of graph databases, column databases, key-value stores etc… enables developers to choose a persistence technology that follows the conceptual contours of the domain in which they are working.</p>
+
+<hr />
+
+<h3 id="references">References</h3>
+<ul>
+  <li>10 years of DDD <a href="http://www.se-radio.net/2015/05/se-radio-episode-226-eric-evans-on-domain-driven-design-at-10-years/">interview</a> with Eric Evans</li>
+  <li><a href="http://www.amazon.com/Peopleware-Productive-Projects-Second-Edition/dp/0932633439">Peopleware</a></li>
+</ul>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>26 Apr 2015</span> &raquo; <a href="/2015/04/26/reflect-after-reading-steve-jobs-biography">Reflect after Reading - Steve Jobs by Walter Isaacson</a></li>
+    
+      <li><span>09 Feb 2015</span> &raquo; <a href="/2015/02/09/reflect-after-reading-functional-programming-in-scala">Reflect after Reading - Functional Programming in Scala</a></li>
+    
+      <li><span>09 Nov 2014</span> &raquo; <a href="/2014/11/09/why-im-jumping-on-the-microservices-bandwagon">Why I'm jumping on the microservices bandwagon</a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+    <div class="footer">
+      <div class="contact">
+        <p>
+          Nick Evans<br />
+          Nick's thoughts on software engineering<br />
+          <a href='mailto:'></a>
+        </p>
+      </div>
+      <div class="contact">
+        <p>
+          <a href="http://github.com/evansnicholas/">github.com/evansnicholas</a><br />
+          <a href="http://twitter.com/npcevans/">twitter.com/npcevans</a><br />
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
