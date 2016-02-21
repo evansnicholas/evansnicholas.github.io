@@ -30,6 +30,7 @@ In a RESTful architecture, resources are identified by Uniform Resource Identifi
 </order>
 {% endhighlight %}
 
+
 This order could be modified by sending a <small>PUT</small> request to the same URI with the new representation, for instance, where the milk type is changed from *whole* to *skimmed*.  
 
 It may seem at first as if this small set of operations can never possibly support the variety of different interactions one is likely to encounter when building a real-world system.  However, it turns out that this selection of operations is more than sufficient (most of the operations are not even used in real-world systems).  In fact, rather than being a straight jacket, this pre-defined set of operations can be liberating because it frees the developer from having to worry about identifying and naming the operations that her system supports.  Similarly, the possible responses are also limited by the HTTP response codes (there are many more response codes than request verbs).  The response codes are divided into three ranges:
@@ -47,7 +48,7 @@ Although these principles may seem simple enough, applying them consistently can
 + **Level Two Service**: The service exposes many URI's and supports different HTTP verbs on each URI.  Many RESTful API's are level two services.
 + **Level Three Service**:  In addition to satisfying the criteria for being a level two service, it includes hypermedia in its resource representations.  This hypermedia guides a consumer in its interactions with the service, in accordance with the HATEOAS principle.
 
-## (Not) Leveraging the platform
+## Leveraging the platform
 
 The fundamentals of a RESTful architecture are the modeling of an application's domain in terms of resources and using the HTTP request/response cycle to interact with those resources.  In addition to verbs and response codes, HTTP provides additional infrastructure in the form of headers.  These headers can be used to address various aspects of the implementation of a distributed system.  
 
@@ -80,8 +81,11 @@ Obviously, the ability of a consumer to actually use such meta-data is dependent
   <author>
     <name>Jenny</name>
   </author>
-  <link rel="self" href="http://restbucks.com/order/1234"/>
-  <link rel="payment" href="http://restbucks.com/payment" type="application/vnd.restbucks+xml" />
+  <link rel="self"
+        href="http://restbucks.com/order/1234"/>
+  <link rel="payment"
+        href="http://restbucks.com/payment"
+        type="application/vnd.restbucks+xml" />
   <content type="application/vnd.restbucks+xml">
     <order xmlns="http://schemas.restbucks.com/order">
       <location>takeAway</location>
