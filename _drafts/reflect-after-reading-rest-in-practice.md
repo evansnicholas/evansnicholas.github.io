@@ -101,14 +101,17 @@ Obviously, the ability of a consumer to actually use such meta-data is dependent
 
 ### Security
 
+When implementing a safe and secure system it is helpful to be able to lean on mature proven technology.  When it comes to security, HTTP provides a number of tried and tested mechanisms, the most important and widely used of which is HTTPS.  HTTPS works by sending HTTP requests and responses over TLS (Transport Level Security) rather than TCP (Transmission Control Protocol).  HTTPS ensures the HTTP requests and responses are sent over an encrypted channel.  HTTPS also ensures that consumers and servers can trust the parties they are communicating with (that the receiving/sending parties really are who they claim to be).  In this way, HTTPS is said to provide *confidentiality* and *integrity*.
 
+The authors of *REST in Practice* discuss a number of other web based security mechanisms, such as the signing of HTTP request bodies and the use of the OAuth and OpenID protocols.  Web Security is a domain that is rapidly evolving and unfortunately the book does not discuss the more recents developments, such as OAuth 2 and JSON Web Tokens.  Nevertheless, the main premise still holds: the web is an extremely hostile environment, and security mechanisms that have survived in this environment are likely to be worth using, also in an enterprise context.
 
 ### SOAP and WS-\*
 
+As we mentioned at the start, REST is not the only architectural style around for integrating systems.  Another popular style is SOAP and the associated Web Services (WS-\*) stack.  The authors acknowledge that proponents of the RESTful style tend to be very critical of the WS-\* stack.  While the book tries to avoid explicitely taking sides in this debate, it does provides some arguments for the bad blood.  The fundamental objection they raise against the WS-\* stack is that it treats HTTP as nothing more than a transport protocol and ignores many of the infrastructural features that it provides (and that we have discussed above).  For instance, the SOAP protocol piggybacks on HTTP and ignores the richness of the HTTP verbs, response codes and headers.  In this way, most WS-\* based services would be categorized as Level Zero services in Richardson's Maturity Model.  Furthermore, they are highly critical of the WSDL standard which promotes RPC like communication between services, which is total anathema to the core philosophy of REST.   
+
 ## Beyond REST
 
-Semantic web technologies.
-
+The highest level in Richardson's Maturity Model is characterized by its use of hypermedia to connect resource representations.  This meta-data guides a consumer in her interactions with the system.  But what if we wanted the consumer not only to follow links, but also to be able to understand, reason and answer questions about the content of the representations?  Extracting the semantics of a representation would be expected of a human consumer, but what would it take to enable a computer consumer achieve this?  Enabling the semantic interpretation of resource representations is the aim of a number of technologies that fall under the umbrella term *Semantic Web* (such as RDF, OWL, SPARQL...).  These technologies can be used to enhance resource representations with further meta-data.  This meta-data can then be processed by computer systems in a generic way and allows them to infer statements about the content of the representations.  These are ambitious technologies still very much under development.  The future of the web is bright.
 
 
 
