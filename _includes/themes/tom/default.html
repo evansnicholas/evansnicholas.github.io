@@ -11,16 +11,12 @@
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="{{ ASSET_PATH }}/tom/css/screen.css" type="text/css" media="screen, projection" />
 
-   <!-- Typekit -->
-   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 
   <div class="site">
     <div class="title">
       <a {% unless page.url == '/index.html' %}class="extra"{% endunless %}  href="{{ HOME_PATH }}">{{ site.title }}</a>
-
       <a {% unless page.url == site.JB.archive_path %}class="extra"{% endunless %} href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a>
       <a {% unless page.url contains site.JB.pages_path %}class="extra"{% endunless %} href="{{ BASE_PATH }}{{ site.JB.pages_path }}">Pages</a>
     </div>

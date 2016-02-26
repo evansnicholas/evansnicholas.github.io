@@ -1,0 +1,35 @@
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
+.top-space {
+  height: 20px;
+}
+
+.author-info-section {
+  background: #fafafa
+}
+
+.author-info-section > p {
+  color: darkgrey;
+}
+
+#author-info-section-name {
+  font-size: 50px;
+}
+
+.post-info {
+  padding: 1em;
+  border-bottom: lightgrey solid thin;
+}
+
+.post-info > p {
+  font-weight: 300;
+  color: darkgrey;
+}
+
+.post-info > a {
+  color: black;
+  font-size: 24px;
+  font-weight: 400;
+}

@@ -6,3 +6,6 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+_site
+./.asset_cache/
