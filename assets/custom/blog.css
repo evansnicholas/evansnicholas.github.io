@@ -7,11 +7,8 @@ body {
 }
 
 .author-info-section {
-  background: #fafafa
-}
-
-.author-info-section > p {
-  color: darkgrey;
+  background: #00ace6;
+  color: white;
 }
 
 #author-info-section-name {
@@ -29,7 +26,22 @@ body {
 }
 
 .post-info > a {
-  color: black;
+  color: rgba(102, 102, 102, 0.64);
   font-size: 24px;
   font-weight: 400;
+}
+
+.post-title-section {
+  background: darkgrey;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.post {
+  line-height:1.5;
+  font-family: 'Lato', sans-serif;
+}
+
+#post-title {
+  font-size: 50px;
 }

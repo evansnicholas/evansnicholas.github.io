@@ -1,5 +1,39 @@
 ---
 layout: default
 ---
-{% include JB/setup %}
-{% include themes/tom/post.html %}
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="top-space col-xs-12">
+    </div>
+  </div>
+
+</div>
+
+<div class="post-title-section">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="post-title-section col-sm-offset-3 col-sm-6 col-xs-12">
+        <h1 id="post-title">{{ page.title }}</h1>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6 post">
+      {{ content }}
+    </div>
+  </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<hr/>
+
+{% if site.comments %}
+  {% include disqus_comments.html %}
+{% endif %}
