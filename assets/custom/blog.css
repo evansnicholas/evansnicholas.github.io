@@ -11,6 +11,15 @@ body {
   color: white;
 }
 
+.author-info-section a {
+  color: white;
+}
+
+.author-info-section ul {
+  text-align: center;
+  padding: 1em;
+}
+
 #author-info-section-name {
   font-size: 50px;
 }
@@ -44,4 +53,8 @@ body {
 
 #post-title {
   font-size: 50px;
+}
+
+#home-link {
+  color:darkgrey;
 }
