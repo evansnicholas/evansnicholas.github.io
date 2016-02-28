@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Reflect after Reading - Steve Jobs by Walter Isaacson
-description: This is a description of the blog post.
+description: What I learnt about Steve Jobs and the history and philosophy of Apple from reading *Steve Jobs* by Walter Isaacson.
 ---
-After I finished reading Steve Jobs by Walter Isaacson I tried to recall the image I had of Jobs before I started the book.  This image was blurred, and consisted mainly of various fragments that I had never taken the time to try and piece together into a coherent whole.  His jeans and black turtleneck uniform came to mind.  I had heard stories about his infamous bad temper.  I knew he had suffered from illness in the last years of his life and had died (relatively) young.  I was curious about his credentials: did he have a technical background? And what exactly was his role at Apple: did he think up the products in all their detail? Or was he predominantly a charismatic leader, steering the ship from a management pedestal?  
+After I finished reading *Steve Jobs* by Walter Isaacson I tried to recall the image I had of Jobs before I started the book.  This image was blurred, and consisted mainly of various fragments that I had never taken the time to try and piece together into a coherent whole.  His jeans and black turtleneck uniform came to mind.  I had heard stories about his infamous bad temper.  I knew he had suffered from illness in the last years of his life and had died (relatively) young.  I was curious about his credentials: did he have a technical background? And what exactly was his role at Apple: did he think up the products in all their detail? Or was he predominantly a charismatic leader, steering the ship from a management pedestal?  
 
 ## The First Third
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why I'm jumping on the microservices bandwagon
-description: This is a description of the blog post.
+description: Thoughts on Docker, microservices vs SOA and organizational structure triggered by attending JFall (a Duch Java user group conference).
 ---
 
 This week I attended JFall, a large annual gathering of java programmers organized by the Dutch java user group (NLJUG).  Looking at the programme, I was especially excited about the chance to spend a couple of hours in a Docker workshop.  Docker being all the rage at the moment, I was looking forward to getting a structured introduction to it.  I had not expected however that this workshop would prove to be the missing jigsaw piece, the final connecting thread between a number of disparate themes that had been on my radar for a while.

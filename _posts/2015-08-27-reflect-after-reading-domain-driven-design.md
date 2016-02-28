@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reflect after Reading - Domain Driven Design
-description: This is a description of the blog post.
+description: "I share my enthusiasm about DDD after reading *Domain Driven Design: Tackling Complexity in the Heart Of Software* by Eric Evans."
 ---
 
 If you knew nothing about it, you could be forgiven for thinking that *Domain Driven Design: Tackling Complexity in the Heart Of Software* by Eric Evans was selling a Methodology.  The kind that is described (and derided) in *Peopleware* as "a general systems theory of how a whole class of thought-intensive work ought to be conducted".  It ticks the boxes: it comes in a big fat book, you can take courses in it, and it claims to solve your software development woes once and for all...
