@@ -32,10 +32,14 @@ layout: default
     </div>
   </div><!-- /.row -->
 
+  <hr/>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6 post">
+      {% if site.comments %}
+        {% include disqus_comments.html %}
+      {% endif %}
+    </div>
+  </div>
+
 </div><!-- /.container -->
-
-<hr/>
-
-{% if site.comments %}
-  {% include disqus_comments.html %}
-{% endif %}
