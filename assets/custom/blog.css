@@ -1,5 +1,20 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font-family: 'Oswald', sans-serif;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }
 
 .top-space {
@@ -17,7 +32,6 @@ body {
 
 .author-info-section ul {
   text-align: center;
-  padding: 1em;
 }
 
 #author-info-section-name {
@@ -58,8 +72,4 @@ body {
 
 #home-link {
   color:darkgrey;
-}
-
-.blog-footer ul {
-  margin-bottom: 0;
 }
