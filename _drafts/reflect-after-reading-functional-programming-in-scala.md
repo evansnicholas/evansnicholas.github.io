@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Reflect after Reading - Functional Programming in Scala
+description: Description
 ---
 
 Paul Chiusano and Rúnar Bjarnason describe *Functional Programming in Scala* as "the book we wish had existed when we were learning functional programming".  I can certainly echo this thought and proclaim that *Functional Programming in Scala* is the book I am glad exists as I am trying to learn functional programming.  The subject is vast, deep and has its roots in a branch of very abstract mathematics known as category theory.  Initial attempts to become acquainted with this programming style can be rather dispiriting.  However, as one progresses, one appreciates that "programming functionally" encompasses a wide spectrum of practices.  At one extreme it is, as Martin Odersky puts it in the foreword to the book, nothing more than programming in a "style that puts the focus on the functions in a program".  The term "function" is here to be understood in the mathematical sense of a "binary relation that maps arguments to results".  For more advanced practitioners, functional programming entails the usage of intimidatingly named patterns with names taken from category theory, such as "applicative functor" and "monad".  In trying to understand these patterns one is confronted with a barrage of seemingly irreconcilable information.  In one approach a monad is nothing but an interface offering a few methods.  In the other it is a typeclass, best understood in the context of Haskell.  In an attempt to provide a more intuitive approach, one also hears of monads described as a "computational context", or even a "programmable semi-colon" (wikiepedia).  The more mathematically inclined opt for purely abstract theoretical definitions.  
@@ -30,7 +31,7 @@ trait Monoid[A] {
 
 While commenting on the meaning of a "monoid", in other words, while trying to answer the question: "what is a monoid?", the authors make some poignant comments on the difficulties of achieving an intuitive understanding of functional abstractions.  They write:
 
-> A monoid is a type together with a binary operation (op) over that type, 
+> A monoid is a type together with a binary operation (op) over that type,
 > satisfying associativity and having an identity element (zero).
 >
 > What does this buy us? Just like any abstraction, a monoid is useful to the
@@ -99,13 +100,13 @@ There are different possible choices for the minimal set of operations that char
 * unit and compose
 * unit, map and join
 
-Some examples of monads that are discussed in the book are Option, List, Gen (a generator of random data used in the property based testing framework), Parser (a type for processing input data used in the parser combinator framework), Reader, State, Id, IO (for performing io operations such as reading or writing to the console, or accessing a database) and ST (for working with mutable state). 
+Some examples of monads that are discussed in the book are Option, List, Gen (a generator of random data used in the property based testing framework), Parser (a type for processing input data used in the parser combinator framework), Reader, State, Id, IO (for performing io operations such as reading or writing to the console, or accessing a database) and ST (for working with mutable state).
 
 Once again, it is tempting to ask what all these data structures have in common and try to capture the essence of the monad in an intuitive way.  Although the same caution applies as in the case of the monoid, the authors do make a suggestion.  A feature of monads is that they support "for-comprehension" syntax.  A for-comprehension is syntactic sugar for a chain of flatMap and map calls.  Consider the following code for handling three Options:
 
 {% highlight scala %}
-option1 flatMap { value1 => 
-  option2 flatMap { value2 => 
+option1 flatMap { value1 =>
+  option2 flatMap { value2 =>
     option3 map { value3 =>
       doSomething(value1, value2, value3)
     }
@@ -162,7 +163,7 @@ trait Applicative[F[_]] extends Functor[F] {
     val self = this
     new Applicative[({type f[x] = (F[x], G[x])})#f] {
       def unit[A](a: => A) = (self.unit(a), G.unit(a))
-       
+
       override def apply[A,B](fs: (F[A => B], G[A => B]))(p: (F[A], G[A])) =
         (self.apply(fs._1)(p._1), G.apply(fs._2)(p._2))
     }
@@ -171,14 +172,14 @@ trait Applicative[F[_]] extends Functor[F] {
   def compose[G[_]](G: Applicative[G]): Applicative[({type f[x] = F[G[x]]})#f] = {
     val self = this
     new Applicative[({type f[x] = F[G[x]]})#f] {
-  
+
       def unit[A](a: => A) = self.unit(G.unit(a))
-     
+
       override def map2[A,B,C](fga: F[G[A]], fgb: F[G[B]])(f: (A,B) => C) =
         self.map2(fga, fgb)(G.map2(_,_)(f))
     }
   }
- 
+
   def sequenceMap[K,V](ofa: Map[K,F[V]]): F[Map[K,V]] =
     ofa.foldLeft(unit(Map[K,V]())) {
       case (acc, (k, fv)) => apply(map(acc)(m =>

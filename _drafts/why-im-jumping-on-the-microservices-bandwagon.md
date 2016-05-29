@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Why I'm jumping on the microservices bandwagon
+description: Description
 ---
 
 This week I attended JFall, a large annual gathering of java programmers organized by the Dutch java user group (NLJUG).  Looking at the programme, I was especially excited about the chance to spent a couple of hours in a Docker workshop.  Docker being all the rage at the moment, I was looking forward to getting a structured introduction to it.  I had not expected however that this workshop would prove to be the missing jigsaw piece, the final connecting thread between a number of disparate themes that had been on my radar for a while.
 
-I am an avid listener of Software Engineering Radio and until that Docker workshop I had not realised quite how intricately connected (and probably deliberately so!) the last few episodes have been: number 210 on microservices, 211 on continuous delivery, 212 on company culture and 213 again on microservices.  An impatient cynic might have dismissed these episodes as follows: microservices? Just a re-branded SOA.  Continuous delivery? Another talk about Jenkins.  Company culture? I thought Software Engineering Radio was meant to be technical!  However I now see how all these episodes combine to produce a clear vision for the future of enterprise software development.  And this conclusion is confirmed by Martin Fowler who, with the caution one would expect of someone who has seen endless hypes come and go, claims to "clearly think that the microservices architectural style is an important idea - one worth serious consideration for enterprise applications." 
+I am an avid listener of Software Engineering Radio and until that Docker workshop I had not realised quite how intricately connected (and probably deliberately so!) the last few episodes have been: number 210 on microservices, 211 on continuous delivery, 212 on company culture and 213 again on microservices.  An impatient cynic might have dismissed these episodes as follows: microservices? Just a re-branded SOA.  Continuous delivery? Another talk about Jenkins.  Company culture? I thought Software Engineering Radio was meant to be technical!  However I now see how all these episodes combine to produce a clear vision for the future of enterprise software development.  And this conclusion is confirmed by Martin Fowler who, with the caution one would expect of someone who has seen endless hypes come and go, claims to "clearly think that the microservices architectural style is an important idea - one worth serious consideration for enterprise applications."
 
 ### What is a microservice?
 
@@ -28,13 +29,6 @@ Finally I come to Docker, and that workshop at JFall.  As I started playing with
 ### References:
 * Martin Fowler's [introduction](http://martinfowler.com/articles/microservices.html) to microservices
 * Randy Shoup's [interview](http://www.se-radio.net/2014/10/episode-212-randy-shoup-on-company-culture/) on company culture and microservices
-* Stefan Tilkov's [interview](http://www.se-radio.net/2014/09/episode-210-stefan-tilkov-on-architecture-and-micro-services/) on microservices 
+* Stefan Tilkov's [interview](http://www.se-radio.net/2014/09/episode-210-stefan-tilkov-on-architecture-and-micro-services/) on microservices
 * James Lewis' [interview](http://www.se-radio.net/2014/10/episode-213-james-lewis-on-microservices/) on microservices
 * [What is Docker?](https://www.docker.com/whatisdocker/)
-
-  
-
-
-
-
- 
