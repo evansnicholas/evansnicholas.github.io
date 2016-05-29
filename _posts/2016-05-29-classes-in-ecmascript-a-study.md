@@ -257,13 +257,11 @@ sub class' constructor to ensure the sub class acquires all the properties that 
 
 ## Conclusion
 The takeaway message from these investigations is that ES6 classes do not introduce
-any new concept of "class" to ECMAScript.  The class syntax simply makes it easier for
+any new concept of "class" into ECMAScript.  The class syntax simply makes it easier for
 developers to use constructor functions and prototypical inheritance.  However, there is a
 growing segment of the javascript community that feels that inheritance is an abstraction
 mechanism to be avoided.  They consider the ES6 class syntax a "bad part"
-because it encourages developers to use a feature of the language that they should stay away from.
-Instead of inheritance, composition is favored as a mechanism for promoting method reuse, as
-captured in the motto "composition over inheritance".
+because it not only encourages developers to use a feature of the language that they should stay away from, but it also further confuses the real nature of how inheritance works in javascript.  For those who reject inheritance, composition is favored as a mechanism for promoting method reuse, as captured in the motto "composition over inheritance".
 
 
 ### References
