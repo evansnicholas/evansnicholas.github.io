@@ -26,7 +26,9 @@ _value_ unambiguously.
 
 In C a programmer can access and manipulate the value of the address held by a pointer. For instance, she can add one to this value, 
 or divide it by two.  She can then look up the data structure that exists at the memory address just computed.  This is powerful, but also dangerous.  An error in pointer arithmetic can lead to memory corruption and 
-unexpected program crashes.
+unexpected program crashes.  Pointers are especially necessary in C because all function arguments are passed by value.  This means
+that calling a function causes copies of the function's arguments to be made.  In order to avoid excessive copying, functions 
+can be called with pointers to variables, rather than the actual (copied) values of these variables.
 
 
 ## Manipulating pointers in C
@@ -65,5 +67,67 @@ int main()
 
 Pointers and arrays:
 
-Pointers to pointers:
+{% highlight c %}
+#include <stdio.h>
+
+int main()
+{
+    /* a is an array of 10 ints */
+    int a[10];
+    /* Set the first element to 1 */
+    a[0] = 1;
+    /* 
+       The array is actually a pointer to the first element */
+       &a[0] and a are equal: 1 
+    */
+    printf("&a[0] and a are equal: %d\n", &a[0] == a);
+    /* Compute the address of the second element */
+    int *a1 = &a[0] + 1;
+    /* Set the value of the second element to 2 */
+    *a1 = 2;
+    /* The second element is: 2 */
+    printf("The second element is: %d\n", a[1]);
+}
+{% endhighlight %}
+
+Pointers can also to point to values are themselves pointers:
+
+{% highlight c %}
+#include <stdio.h>
+
+int main()
+{
+    /* Declare two arrays of ints. */
+    int a[10];
+    int b[10];
+    /* Set the first elements of the arrays to 1 and 10. */
+    a[0] = 1;
+    b[0] = 10;
+    /* 
+       Declare an array that holds pointers to arrays of ints.
+       Remember: a pointer to an array is actually 
+       just a pointer to the first element. 
+    */
+    int *p[2];
+    /* Store pointers to the arrays a and b in the array */
+    p[0] = a;
+    p[1] = b;
+    /* p is a pointer to a pointer to an int. */
+    int **a1 = p;
+    /* Double deferencing this pointer returns the 
+       value of the first element of a.
+       The first element of a is: 1. 
+    */
+    printf("The first element of a is: %d\n", **a1);
+    /* Doubling deferencing the second element p 
+       returns the value of the first element of b.
+       The first element of b is: 10. 
+    */
+    printf("The first element of b is: %d\n", **(a1 + 1));
+}
+{% endhighlight %}
+
+The following is an illustration of this final situation:
+
+
 
