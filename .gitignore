@@ -9,3 +9,5 @@ Thumbs.db
 
 _site
 ./.asset_cache/
+
+.vscode
