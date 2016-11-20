@@ -3,10 +3,10 @@ layout: post
 title: Experiments in C - Pointers
 description: Getting to grips with the basics of pointers in C.
 ---
-There is a view that "true" programmers understand pointers (for instance, see Joel on Software's [article](http://www.joelonsoftware.com/articles/theperilsofjavaschools.html) 
+There is a view that "true" programmers understand pointers (see Joel on Software's [article](http://www.joelonsoftware.com/articles/theperilsofjavaschools.html) 
 for an elaborate statement of this view).  By _pointer_ I mean an actual pointer, the kind that you can 
 perform pointer arithmetic on, not simply a reference to an in-memory object (see this [stack overflow post](http://stackoverflow.com/questions/2629357/does-java-have-pointers) 
-for a discussion of this point).  Armed with Kernighan and Richie's _The C Programming Language_, in this post I will
+for a discussion of the difference).  Armed with Kernighan and Richie's _The C Programming Language_, in this post I
 explore two of C's fundamental operators for the manipulation of pointers: <small>&</small> and <small>*</small> .
 
 ## Pointer basics
@@ -16,7 +16,7 @@ Kernighan and Richie define a pointer as follows:
 > A pointer is a variable that contains the address of a variable.
 
 This address is essentially a number whose size depends on the architecture of the computer on which the program 
-is running (on a 64 bit machine, a pointer has a size of 64 bits, or 8 bytes).  As the diagram below shows, a pointer is
+is running (on a 64 bit machine, an address has a size of 64 bits, or 8 bytes).  As the diagram below shows, a pointer is
 a number in memory that is interpreted as holding the address of a value (it "points" to the value).  The value can be any data type
 supported in C: an integer, a string, an array, a struct... The word _value_ when applied to a pointer can be confusing.  It can be used to denote the value of 
 the address contained by the pointer variable, or the value that exists at that address (the value pointed to).  In what follows, I will do my best to use the term
@@ -25,7 +25,7 @@ _value_ unambiguously.
  <img src="/assets/images/pointers.png" class="img-responsive center-block" alt="Pointer illustration" /> 
 
 In C a programmer can access and manipulate the value of the address held by a pointer. For instance, she can add one to this value, 
-or divide it by two.  She can then look up the data structure that exists at the memory address just computed.  This is powerful, but also dangerous.  An error in pointer arithmetic can lead to memory corruption and 
+or divide it by two.  She can then look up the data structure that exists at the memory address so computed.  This is powerful, but also dangerous.  An error in pointer arithmetic can lead to memory corruption and 
 unexpected program crashes.  Pointers are especially necessary in C because all function arguments are passed by value.  This means
 that calling a function causes copies of the function's arguments to be made.  In order to avoid excessive copying, functions 
 can be called with pointers to variables, rather than the actual (copied) values of these variables.
@@ -72,18 +72,16 @@ Pointers and arrays:
 
 int main()
 {
-    /* a is an array of 10 ints */
+    /* a is an array of 10 ints. */
     int a[10];
-    /* Set the first element to 1 */
+    /* Set the first element to 1. */
     a[0] = 1;
-    /* 
-       The array is actually a pointer to the first element */
-       &a[0] and a are equal: 1 
-    */
+    /* The array is actually a pointer to the first element. */
+    /* &a[0] and a are equal: 1 */
     printf("&a[0] and a are equal: %d\n", &a[0] == a);
-    /* Compute the address of the second element */
+    /* Compute the address of the second element. */
     int *a1 = &a[0] + 1;
-    /* Set the value of the second element to 2 */
+    /* Set the value of the second element to 2. */
     *a1 = 2;
     /* The second element is: 2 */
     printf("The second element is: %d\n", a[1]);
@@ -114,20 +112,22 @@ int main()
     p[1] = b;
     /* p is a pointer to a pointer to an int. */
     int **a1 = p;
-    /* Double deferencing this pointer returns the 
+    /* 
+       Doubly dereferencing this pointer returns the 
        value of the first element of a.
-       The first element of a is: 1. 
     */
+    /* The first element of a is: 1 */ 
     printf("The first element of a is: %d\n", **a1);
-    /* Doubling deferencing the second element p 
+    /* 
+       Doubly dereferencing the second element of p 
        returns the value of the first element of b.
-       The first element of b is: 10. 
     */
+    /* The first element of b is: 10 */ 
     printf("The first element of b is: %d\n", **(a1 + 1));
 }
 {% endhighlight %}
 
 The following is an illustration of this final situation:
 
-
+<img src="/assets/images/pointer-to-pointer.png" class="img-responsive center-block" alt="Pointer to pointer illustration" />
 
