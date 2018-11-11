@@ -43,7 +43,7 @@ are and can answer queries without needing further processing.
 Microservices continue to form the basic building blocks of any architecture. When it comes to actually running these microservices, 
 Kubernetes has become the platform of choice. That Kubernetes has emerged as the winner of the container platform wars is 
 confirmed by the fact that a new project like [Istio](https://conferences.oreilly.com/software-architecture/sa-eu/public/schedule/detail/70784) 
-can only be run on Kubernetes. By adding so called _side-car containers_ to a kubernetes deployment, Istio allows several 
+can only be run on Kubernetes. By adding so called _side-car containers_ to a Kubernetes deployment, Istio allows several 
 resilience and security patterns to be easily implemented.
 
 ## Serverless
